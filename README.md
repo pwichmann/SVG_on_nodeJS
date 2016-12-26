@@ -1,2 +1,1 @@
-# SVG_on_nodeJS
-Processing *.SVG on node.js
+# Processing *.svg files in a node.js environment
