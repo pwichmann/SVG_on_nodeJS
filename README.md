@@ -1,4 +1,6 @@
-# Processing *.svg files in a node.js environment (here with focus on paper.js)
+# Processing *.svg files in a node.js environment
+This document shall summarise my findings on how to process *.svg files in a node.js environment.
+Regarding the *.svg library, the focus will be on paper.js. Most of the findings, however, should be applicable to other libraries, too.
 
 ## General situation
 
