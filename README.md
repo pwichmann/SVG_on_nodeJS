@@ -40,10 +40,13 @@ JSDOM (https://github.com/tmpvar/jsdom) is a JavaScript implementation of the DO
   * Paper.js depends on the Cairo Graphics library (https://www.cairographics.org/)
 
 ## Importing, processing and exporting an *.svg in paper.js
+What we want to do is to import an *.svg file, modify it (e.g. by adding a rectangle) and then to export the modified *.svg again.
 
 ### General problems you will encounter when trying to import *.svgs
 
 #### Asynchronous node.js
+Node.js is asynchronous, that is the code is generally executed concurrently rather than consecutively. Because loading *.svgs takes relatively longer, you need to make sure that the *.svg is actually loaded and available before you start using it.
+
 If you load the *.svg but do not process it in the callback function, then the processing will be excecuted while the *.svg has not been loaded yet.
 The following code would allow for the _correct_ behaviour:
 
@@ -59,7 +62,7 @@ project.importSVG('./svg-import/115784.svg', function(item) {
 });
 ```
 
-#### Cascading of styles
+#### Cascading of styles (problem when no fill is defined for the imported *.svg)
 
 It turns out that your SVG data doesn't define a fill but expects the default fill to cascade through. Unfortunately this doesn't seem to work on Node.js.
 I believe it's because styles don't cascade for SVG elements in JSDOM yet. I'd recommend _explicitly_ setting styles in your SVG data for now.
@@ -75,7 +78,7 @@ I believe it's because styles don't cascade for SVG elements in JSDOM yet. I'd r
   * https://github.com/tmpvar/jsdom/issues/1696
 
 ## Digital hugs
-* Thanks to Jürg Lehni (paper.js) for providing the amazing paper.js library and assisting in solving issues.
+* Thanks to Jürg Lehni (paper.js) for providing the amazing paper.js library and assisting in solving issues. Please consider donating to his project here: http://paperjs.org/donation/
 
 ## Sources
 * https://www.smashingmagazine.com/2014/05/love-generating-svg-javascript-move-to-server/
