@@ -74,6 +74,8 @@ project.importSVG('./svg-import/115784.svg', function(item) {
 "It turns out that your SVG data doesn't define a fill but expects the default fill to cascade through. Unfortunately this doesn't seem to work on Node.js.
 I believe it's because styles don't cascade for SVG elements in JSDOM yet. I'd recommend _explicitly_ setting styles in your SVG data for now."
 
+* TODO: How do I set styles in the *.svg? Can I add the style using code?
+
 #### Paper.js does not feature 'futures' yet to manage synchronous workflow
 
 * (I still have to fully understand this...)
