@@ -4,7 +4,7 @@ Regarding the *.svg library, the focus will be on paper.js. Most of the findings
 
 ## General situation
 
-There are two fundamental options for achieving a server-side *.svg generation:
+There are two fundamental options for generating *.svgs on the server-side:
 * *Option A*: Move the browser to the server (e.g. using PhantomJS)
 * *Option B*: Do NOT move an actual browser to the server but actually draw in node.js (using JSDOM)
 
@@ -52,9 +52,16 @@ The following code would allow for the _correct_ behaviour:
 
 ```javascript
 project.importSVG('./svg-import/115784.svg', function(item) {
+    
+    // This is the callback function of the importSVG()
+    
+    // Do something to or with the imported *.svg
+    // ...here...
+
+    // Export the *.svg again
     var paper_svg = project.exportSVG({ asString: true });
 
-    // Export the file in the callback function. Not outside this function.
+    // Write the exported *.svg into a file on the system
     fs.writeFile(path.resolve("./svg-export/export.svg"), paper_svg, function (err) {
         if (err) throw err;
         console.log('*.svg exported and saved as /svg-export/export.svg!');
