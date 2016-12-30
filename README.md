@@ -72,3 +72,7 @@ I believe it's because styles don't cascade for SVG elements in JSDOM yet. I'd r
   * https://github.com/paperjs/paper.js/issues/1229
 * JSDOM issue: Cascading of inline styles
   * https://github.com/tmpvar/jsdom/issues/1696
+
+
+## Sources
+* https://www.smashingmagazine.com/2014/05/love-generating-svg-javascript-move-to-server/
