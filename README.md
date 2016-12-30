@@ -4,10 +4,9 @@ Regarding the *.svg library, the focus will be on paper.js. Most of the findings
 
 ## General situation
 
-There are different options of achieving a server-side *.svg generation:
+There are two fundamental options for achieving a server-side *.svg generation:
 * Option A: Move the browser to the server (e.g. using PhantomJS)
 * Option B: Do NOT move an actual browser to the server but actually draw in node.js (using JSDOM)
-* ...
 
 ### Option A: Move the browser to the server (e.g. using PhantomJS)
 * PhantomJS is a WebKit implementation that can be controlled with JavaScript.
@@ -19,6 +18,7 @@ There are different options of achieving a server-side *.svg generation:
   * ...
 
 ### Option B: Do NOT move an actual browser to the server but actually draw in node.js (using JSDOM)
+* This option appears to be the superior option (e.g. https://github.com/tmpvar/jsdom#jsdom-vs-phantomjs)
 * *.svg files are XML files
 * XML files make use of the DOM = Document Object Model
 * The XML DOM is (http://www.w3schools.com/xml/dom_intro.asp) :
@@ -29,7 +29,7 @@ There are different options of achieving a server-side *.svg generation:
 Now, the problem is that the JavaScript SVG libraries extensively use the DOM API to create an SVG document, append nodes to it and manipulate it in different ways. 
 Node.js, however, - as opposed to the browser - lacks this kind of API.
 
-The solution for this problem is JSDOM
+The solution for this problem is JSDOM.
 JSDOM (https://github.com/tmpvar/jsdom) is a JavaScript implementation of the DOM that can be used with Node.js.
 
 
@@ -73,6 +73,10 @@ I believe it's because styles don't cascade for SVG elements in JSDOM yet. I'd r
 * JSDOM issue: Cascading of inline styles
   * https://github.com/tmpvar/jsdom/issues/1696
 
+## Digital hugs
+* Thanks to Jürg Lehni (paper.js) for providing the amazing paper.js library and assisting in solving issues.
 
 ## Sources
 * https://www.smashingmagazine.com/2014/05/love-generating-svg-javascript-move-to-server/
+* https://github.com/tmpvar/jsdom#jsdom-vs-phantomjs
+* https://github.com/paperjs/paper.js
