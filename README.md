@@ -2,11 +2,9 @@
 
 ## General situation
 
-The general problem with processing *.svg in node.js is that the DOM (_which_?) needs to be processed which is usually done by the browser. This leads to some awkward requirements when you try to do the same thing on the server-side.
-
 There are different options of achieving a server-side *.svg generation:
-* Move the browser to the server (Phantom.js)
-* ...
+* Option A: Move the browser to the server (e.g. using PhantomJS)
+* Option B: Do NOT move an actual browser to the server but actually draw in node.js (using JSDOM)
 * ...
 
 ### Option A: Move the browser to the server (e.g. using PhantomJS)
