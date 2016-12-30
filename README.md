@@ -5,8 +5,8 @@ Regarding the *.svg library, the focus will be on paper.js. Most of the findings
 ## General situation
 
 There are two fundamental options for achieving a server-side *.svg generation:
-* Option A: Move the browser to the server (e.g. using PhantomJS)
-* Option B: Do NOT move an actual browser to the server but actually draw in node.js (using JSDOM)
+* *Option A*: Move the browser to the server (e.g. using PhantomJS)
+* *Option B*: Do NOT move an actual browser to the server but actually draw in node.js (using JSDOM)
 
 ### Option A: Move the browser to the server (e.g. using PhantomJS)
 * PhantomJS is a WebKit implementation that can be controlled with JavaScript.
@@ -15,7 +15,7 @@ There are two fundamental options for achieving a server-side *.svg generation:
 * Advantages:
   * ...
 * Disadvantages:
-  * ...
+  * see some here: https://github.com/tmpvar/jsdom#jsdom-vs-phantomjs
 
 ### Option B: Do NOT move an actual browser to the server but actually draw in node.js (using JSDOM)
 * This option appears to be the superior option (e.g. https://github.com/tmpvar/jsdom#jsdom-vs-phantomjs)
