@@ -1,10 +1,10 @@
-# Processing *.svg files in a node.js environment
+# Processing *.svg files in a node.js environment (here with focus on paper.js)
+
+## General situation
+
+The general problem with processing *.svg in node.js is that the DOM (_which_?) needs to be processed which is usually done by the browser. This leads to some awkward requirements when you try to do the same thing on the server-side.
 
 ## Importing, processing and exporting an *.svg in paper.js
-
-The general problem with processing *.svg in node.js is that the DOM needs to be processed which is usually done by the browser. This leads to some awkward requirements when you try to do the same thing on the server-side.
-
-
 
 ### General problems you will encounter when trying to import *.svgs
 
