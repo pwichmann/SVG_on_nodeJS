@@ -16,14 +16,20 @@ The following code would allow for the _correct_ behaviour:
 project.importSVG('./svg-import/115784.svg', function(item) {
     var paper_svg = project.exportSVG({ asString: true });
 
-    // Actually export the *.svg into a new file
-    // Only the rectangle gets exported...
+    // Export the file in the callback function. Not outside this function.
     fs.writeFile(path.resolve("./svg-export/export.svg"), paper_svg, function (err) {
         if (err) throw err;
         console.log('*.svg exported and saved as /svg-export/export.svg!');
     });
 });
 ```
+
+#### Cascading of styles
+
+It turns out that your SVG data doesn't define a fill but expects the default fill to cascade through. Unfortunately this doesn't seem to work on Node.js.
+I believe it's because styles don't cascade for SVG elements in JSDOM yet. I'd recommend _explicitly_ setting styles in your SVG data for now.
+
+#### Paper.js does not feature 'futures' yet to manage synchronous workflow
 
 ### Current related issues
 
