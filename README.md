@@ -4,6 +4,40 @@
 
 The general problem with processing *.svg in node.js is that the DOM (_which_?) needs to be processed which is usually done by the browser. This leads to some awkward requirements when you try to do the same thing on the server-side.
 
+There are different options of achieving a server-side *.svg generation:
+* Move the browser to the server (Phantom.js)
+* ...
+* ...
+
+### Option A: Move the browser to the server (e.g. using PhantomJS)
+* PhantomJS is a WebKit implementation that can be controlled with JavaScript.
+* Roughly speaking, it is an actual — yet headless — browser, meaning that Web pages are never rendered.
+* (This is based on: https://www.smashingmagazine.com/2014/05/love-generating-svg-javascript-move-to-server/)
+* Advantages:
+  * ...
+* Disadvantages:
+  * ...
+
+### Option B: Do NOT move an actual browser to the server but actually draw in node.js (using JSDOM)
+* *.svg files are XML files
+* XML files make use of the DOM = Document Object Model
+* The XML DOM is (http://www.w3schools.com/xml/dom_intro.asp) :
+  * A standard object model for XML
+  * A standard programming interface for XML
+  * Platform- and language-independent
+
+Now, the problem is that the JavaScript SVG libraries extensively use the DOM API to create an SVG document, append nodes to it and manipulate it in different ways. 
+Node.js, however, - as opposed to the browser - lacks this kind of API.
+
+The solution for this problem is JSDOM
+JSDOM (https://github.com/tmpvar/jsdom) is a JavaScript implementation of the DOM that can be used with Node.js.
+
+
+## Technical requirements
+
+* Node.js
+* Paper.js (latest development build): http://paperjs.org/download/#development-builds
+
 ## Importing, processing and exporting an *.svg in paper.js
 
 ### General problems you will encounter when trying to import *.svgs
