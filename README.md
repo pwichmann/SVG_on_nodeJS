@@ -37,6 +37,7 @@ JSDOM (https://github.com/tmpvar/jsdom) is a JavaScript implementation of the DO
 
 * Node.js
 * Paper.js (latest development build): http://paperjs.org/download/#development-builds
+  * Paper.js depends on the Cairo Graphics library (https://www.cairographics.org/)
 
 ## Importing, processing and exporting an *.svg in paper.js
 
